@@ -3,7 +3,7 @@
    Navbar, mobile menu, AOS, counters, testimonials
    ============================================ */
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://snowfold-backend.onrender.com/api';
 
 // ===== AOS =====
 AOS.init({ once: true, offset: 60, easing: 'ease-out-cubic' });
