@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — SNOWFOLD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .page-hero { padding: 140px 0 60px; text-align: center; background: linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 100%); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 500px; height: 300px; background: radial-gradient(ellipse, rgba(212,175,55,0.07) 0%, transparent 70%); pointer-events: none; }
+    .page-hero-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-400); margin-bottom: 14px; }
+    .page-hero-title { font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px); font-weight: 700; color: var(--white); margin-bottom: 16px; }
+    .page-hero-subtitle { font-size: 17px; color: var(--gray-300); max-width: 540px; margin: 0 auto; line-height: 1.7; }
+
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; align-items: start; }
+
+    /* Contact Info */
+    .contact-info-cards { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+    .contact-info-card { display: flex; align-items: flex-start; gap: 16px; padding: 20px; background: rgba(10,21,36,0.6); border: 1px solid rgba(212,175,55,0.12); border-radius: 14px; transition: border-color 0.2s ease; }
+    .contact-info-card:hover { border-color: rgba(212,175,55,0.3); }
+    .ci-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(212,175,55,0.1); display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--gold-400); flex-shrink: 0; }
+    .ci-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-500); margin-bottom: 4px; }
+    .ci-value { font-size: 14px; color: var(--off-white); font-weight: 500; line-height: 1.5; }
+    .ci-value a { color: var(--off-white); transition: color 0.2s; }
+    .ci-value a:hover { color: var(--gold-400); }
+
+    .whatsapp-direct { display: flex; align-items: center; gap: 12px; padding: 18px 22px; background: rgba(37,211,102,0.08); border: 1.5px solid rgba(37,211,102,0.25); border-radius: 14px; margin-bottom: 28px; transition: all 0.2s ease; }
+    .whatsapp-direct:hover { background: rgba(37,211,102,0.15); border-color: rgba(37,211,102,0.45); }
+    .whatsapp-direct i { font-size: 28px; color: #25d366; }
+    .wa-label { font-size: 13px; font-weight: 700; color: var(--off-white); margin-bottom: 2px; }
+    .wa-num { font-size: 13px; color: #25d366; }
+
+    .map-wrap { border-radius: 16px; overflow: hidden; border: 1px solid rgba(212,175,55,0.12); }
+    .map-wrap iframe { width: 100%; height: 220px; border: none; filter: grayscale(40%) invert(90%) hue-rotate(180deg); }
+
+    /* Contact Form */
+    .contact-form-wrap { background: rgba(10,21,36,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(212,175,55,0.12); border-radius: 20px; padding: 36px; }
+    .form-title { font-family: var(--font-display); font-size: 26px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    .form-subtitle { font-size: 14px; color: var(--gray-500); margin-bottom: 28px; }
+
+    .form-row { margin-bottom: 18px; }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 18px; }
+    .form-label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-300); margin-bottom: 7px; }
+    .form-input { width: 100%; padding: 12px 16px; background: rgba(5,13,24,0.7); border: 1px solid rgba(212,175,55,0.15); border-radius: 10px; color: var(--off-white); font-size: 14px; font-family: var(--font-body); transition: border-color 0.2s ease; }
+    .form-input:focus { outline: none; border-color: var(--gold-500); }
+    .form-input::placeholder { color: rgba(255,255,255,0.25); }
+    textarea.form-input { resize: vertical; min-height: 120px; }
+
+    .submit-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--gold-400), var(--gold-500)); color: var(--navy-950); font-weight: 700; font-size: 16px; border: none; border-radius: 10px; cursor: pointer; font-family: var(--font-body); transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 10px; }
+    .submit-btn:hover { background: linear-gradient(135deg, var(--gold-300), var(--gold-400)); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(212,175,55,0.3); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .form-success { display: none; text-align: center; padding: 32px 20px; }
+    .form-success i { font-size: 48px; color: var(--gold-400); margin-bottom: 16px; display: block; }
+    .form-success h3 { font-family: var(--font-display); font-size: 22px; color: var(--white); margin-bottom: 8px; }
+    .form-success p { font-size: 14px; color: var(--gray-300); }
+
+    .form-error { display: none; padding: 12px 16px; background: rgba(224,104,90,0.1); border: 1px solid rgba(224,104,90,0.3); border-radius: 8px; color: #e0685a; font-size: 13px; margin-bottom: 16px; align-items: center; gap: 8px; }
+    .form-error.show { display: flex; }
+
+    @media(max-width:900px) { .contact-grid { grid-template-columns: 1fr; } }
+    @media(max-width:560px) { .form-row-2 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/images/logo-white.png" alt="SNOWFOLD" class="nav-logo" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="products.html" class="nav-link">Products</a></li>
+        <li><a href="brochure.html" class="nav-link">Brochure</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact Us</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn-inquiry">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-eyebrow">Get in Touch</div>
+      <h1 class="page-hero-title">Contact <span class="gold-gradient-text">SNOWFOLD</span></h1>
+      <p class="page-hero-subtitle">We'd love to hear from you. Get in touch with us for inquiries, bulk orders and distribution partnerships.</p>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--navy-900);">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Left: Info -->
+        <div data-aos="fade-right">
+          <div class="section-eyebrow">Our Details</div>
+          <h2 class="section-title" style="font-size:30px; margin-bottom:28px;">How to <span class="gold-gradient-text">Reach Us</span></h2>
+
+          <div class="contact-info-cards">
+            <div class="contact-info-card">
+              <div class="ci-icon"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <div class="ci-label">Phone</div>
+                <div class="ci-value"><a href="tel:+919500307500">+91 95003 07500</a></div>
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <div class="ci-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <div class="ci-label">Email</div>
+                <div class="ci-value"><a href="mailto:info@snowfold.com">info@snowfold.com</a></div>
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <div class="ci-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div class="ci-label">Address</div>
+                <div class="ci-value">No. 6, Fox Garden, Thiru Vee Ka Nagar,<br>TMC Colony Road, KNP Colony Post,<br>Tirupur — 641 604, Tamil Nadu</div>
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <div class="ci-icon"><i class="fa-solid fa-clock"></i></div>
+              <div>
+                <div class="ci-label">Business Hours</div>
+                <div class="ci-value">Monday – Saturday: 9:00 AM – 6:00 PM<br><span style="color:var(--gray-500); font-size:12px;">Sunday: Closed</span></div>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/919500307500" target="_blank" class="whatsapp-direct">
+            <i class="fa-brands fa-whatsapp"></i>
+            <div>
+              <div class="wa-label">Chat on WhatsApp</div>
+              <div class="wa-num">+91 95003 07500</div>
+            </div>
+          </a>
+
+          <div class="map-wrap">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.2!2d77.3411!3d11.1085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDA2JzMwLjYiTiA3N8KwMjAnMjkuMCJF!5e0!3m2!1sen!2sin!4v1"
+              allowfullscreen=""
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div data-aos="fade-left">
+          <div class="contact-form-wrap">
+            <div class="form-title">Send us a Message</div>
+            <div class="form-subtitle">Fill in the form below and we'll get back to you within 24 hours.</div>
+
+            <div class="form-error" id="formError">
+              <i class="fa-solid fa-circle-exclamation"></i>
+              <span id="formErrorText">Something went wrong. Please try again.</span>
+            </div>
+
+            <form id="contactForm">
+              <div class="form-row-2">
+                <div>
+                  <label class="form-label" for="name">Your Name</label>
+                  <input type="text" id="name" class="form-input" placeholder="Rajesh Kumar" required />
+                </div>
+                <div>
+                  <label class="form-label" for="phone">Phone Number</label>
+                  <input type="tel" id="phone" class="form-input" placeholder="+91 98765 43210" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <label class="form-label" for="email">Email Address</label>
+                <input type="email" id="email" class="form-input" placeholder="your@email.com" required />
+              </div>
+              <div class="form-row">
+                <label class="form-label" for="message">Your Message</label>
+                <textarea id="message" class="form-input" placeholder="Tell us about your requirements — product type, quantity, delivery location..." required></textarea>
+              </div>
+              <button type="submit" class="submit-btn" id="submitBtn">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span id="submitText">Send Message</span>
+              </button>
+            </form>
+
+            <div class="form-success" id="formSuccess">
+              <i class="fa-solid fa-circle-check"></i>
+              <h3>Message Sent!</h3>
+              <p>Thank you for reaching out. Our team will contact you within 24 hours.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/images/logo-white.png" alt="SNOWFOLD" class="footer-logo" />
+          <div class="footer-tagline">Softness, Folded In.</div>
+          <p class="footer-about">Premium tissue products manufactured by Hrithvin Industries, Tirupur.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://wa.me/919500307500"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col"><div class="footer-col-title">Products</div><ul><li><a href="products.html">Facial Tissue</a></li><li><a href="products.html">Kitchen Towel</a></li><li><a href="products.html">Toilet Tissue</a></li><li><a href="products.html">Table Napkins</a></li></ul></div>
+        <div class="footer-col"><div class="footer-col-title">Company</div><ul><li><a href="about.html">About Us</a></li><li><a href="brochure.html">Brochures</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><div class="footer-col-title">Contact</div><ul class="footer-contact"><li><i class="fa-solid fa-phone"></i><a href="tel:+919500307500">+91 95003 07500</a></li><li><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/919500307500">WhatsApp</a></li><li><i class="fa-solid fa-envelope"></i><a href="mailto:info@snowfold.com">info@snowfold.com</a></li><li><i class="fa-solid fa-location-dot"></i>No. 6, Fox Garden, Tirupur — 641 604</li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 SNOWFOLD — Hrithvin Industries. All rights reserved.</p>
+        <p>Manufactured in Tirupur, Tamil Nadu, India</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/919500307500" target="_blank" class="whatsapp-float"><i class="fa-brands fa-whatsapp"></i></a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ once: true, offset: 60 });
+    const API = 'http://localhost:5000/api';
+
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const errorBox = document.getElementById('formError');
+      const errorText = document.getElementById('formErrorText');
+
+      btn.disabled = true;
+      document.getElementById('submitText').textContent = 'Sending...';
+      errorBox.classList.remove('show');
+
+      const payload = {
+        name: document.getElementById('name').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        message: document.getElementById('message').value.trim(),
+      };
+
+      try {
+        const res = await fetch(`${API}/messages`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) {
+          const data = await res.json();
+          throw new Error(data.message || 'Submission failed');
+        }
+
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } catch (err) {
+        errorText.textContent = err.message || 'Something went wrong. Please try again.';
+        errorBox.classList.add('show');
+        btn.disabled = false;
+        document.getElementById('submitText').textContent = 'Send Message';
+      }
+    });
+  </script>
+</body>
+</html>

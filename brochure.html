@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brochure — SNOWFOLD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .page-hero { padding: 140px 0 60px; text-align: center; background: linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 100%); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 500px; height: 300px; background: radial-gradient(ellipse, rgba(212,175,55,0.07) 0%, transparent 70%); pointer-events: none; }
+    .page-hero-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-400); margin-bottom: 14px; }
+    .page-hero-title { font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px); font-weight: 700; color: var(--white); margin-bottom: 16px; }
+    .page-hero-subtitle { font-size: 17px; color: var(--gray-300); max-width: 540px; margin: 0 auto; line-height: 1.7; }
+
+    .brochure-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; margin-bottom: 80px; }
+    .brochure-intro-img { position: relative; border-radius: 20px; overflow: hidden; background: #f0ece4; border: 1px solid rgba(212,175,55,0.12); }
+    .brochure-intro-img img { width: 100%; height: 420px; object-fit: cover; }
+    .brochure-intro-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(5,13,24,0.4), transparent); }
+    .brochure-intro-badge { position: absolute; bottom: 24px; left: 24px; background: linear-gradient(135deg, var(--gold-400), var(--gold-500)); color: var(--navy-950); padding: 12px 20px; border-radius: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; }
+
+    .brochure-list-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .brochure-card { background: rgba(10,21,36,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(212,175,55,0.12); border-radius: 20px; padding: 28px; display: flex; align-items: center; gap: 20px; transition: all 0.3s ease; }
+    .brochure-card:hover { border-color: rgba(212,175,55,0.35); transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.35); }
+    .brochure-icon { width: 56px; height: 56px; border-radius: 14px; background: var(--danger-bg, #3a1c19); color: #e0685a; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+    .brochure-info { flex: 1; min-width: 0; }
+    .brochure-title { font-weight: 600; font-size: 16px; color: var(--white); margin-bottom: 4px; }
+    .brochure-type { font-size: 12px; color: var(--text-muted, #7c8699); }
+    .brochure-actions { display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
+    .brochure-actions a { padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; text-align: center; display: flex; align-items: center; gap: 6px; transition: all 0.2s ease; white-space: nowrap; }
+
+    .empty-brochure { text-align: center; padding: 80px 20px; grid-column: 1/-1; }
+    .empty-brochure i { font-size: 48px; color: rgba(212,175,55,0.2); margin-bottom: 16px; display: block; }
+    .empty-brochure p { color: var(--gray-500); font-size: 16px; }
+
+    .skeleton-br { background: linear-gradient(90deg, #0a1524 25%, #122036 50%, #0a1524 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; border-radius: 20px; height: 110px; }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+    @media(max-width:900px) {
+      .brochure-intro { grid-template-columns: 1fr; gap: 40px; }
+      .brochure-list-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/images/logo-white.png" alt="SNOWFOLD" class="nav-logo" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="products.html" class="nav-link">Products</a></li>
+        <li><a href="brochure.html" class="nav-link active">Brochure</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn-inquiry">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-eyebrow">Downloads</div>
+      <h1 class="page-hero-title">Download <span class="gold-gradient-text">Brochures</span></h1>
+      <p class="page-hero-subtitle">Get to know more about SNOWFOLD, our products and our commitment to quality. Download our brochures below.</p>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--navy-900);">
+    <div class="container">
+      <div class="brochure-intro" data-aos="fade-up">
+        <div class="brochure-intro-img">
+          <img src="assets/images/products/card-facial.png" alt="SNOWFOLD Brochure" />
+          <div class="brochure-intro-overlay"></div>
+          <div class="brochure-intro-badge"><i class="fa-solid fa-file-pdf"></i> &nbsp;PDF Downloads</div>
+        </div>
+        <div>
+          <div class="section-eyebrow">Our Brochures</div>
+          <h2 class="section-title">Everything You Need to <span class="gold-gradient-text">Know</span></h2>
+          <p class="section-body">Our brochures contain detailed information about our product range, specifications, packaging options, and company overview. Perfect for bulk buyers, distributors and partners who want to learn more about SNOWFOLD before making a decision.</p>
+          <p class="section-body">Can't find what you're looking for? Contact us directly and we'll send you a customised product catalogue.</p>
+          <a href="contact.html" class="btn-primary-gold">Contact Us <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="section-header" data-aos="fade-up" style="text-align:left; margin-bottom: 32px;">
+        <div class="section-eyebrow">Available Downloads</div>
+        <h2 class="section-title" style="font-size: 32px;">Company & Product <span class="gold-gradient-text">Brochures</span></h2>
+      </div>
+
+      <div class="brochure-list-grid" id="brochureGrid">
+        <div class="skeleton-br"></div>
+        <div class="skeleton-br"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-bg"></div>
+    <div class="container">
+      <div class="cta-content" data-aos="fade-up">
+        <div class="section-eyebrow light">Need More Info?</div>
+        <h2 class="cta-title">Talk to Our <span class="gold-gradient-text">Team</span></h2>
+        <p class="cta-subtitle">Our team is ready to answer your questions, provide samples and discuss bulk pricing.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn-primary-gold">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="https://wa.me/919500307500" target="_blank" class="btn-whatsapp-large"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/images/logo-white.png" alt="SNOWFOLD" class="footer-logo" />
+          <div class="footer-tagline">Softness, Folded In.</div>
+          <p class="footer-about">Premium tissue products manufactured by Hrithvin Industries, Tirupur.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://wa.me/919500307500"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col"><div class="footer-col-title">Products</div><ul><li><a href="products.html">Facial Tissue</a></li><li><a href="products.html">Kitchen Towel</a></li><li><a href="products.html">Toilet Tissue</a></li><li><a href="products.html">Table Napkins</a></li></ul></div>
+        <div class="footer-col"><div class="footer-col-title">Company</div><ul><li><a href="about.html">About Us</a></li><li><a href="brochure.html">Brochures</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><div class="footer-col-title">Contact</div><ul class="footer-contact"><li><i class="fa-solid fa-phone"></i><a href="tel:+919500307500">+91 95003 07500</a></li><li><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/919500307500">WhatsApp</a></li><li><i class="fa-solid fa-envelope"></i><a href="mailto:info@snowfold.com">info@snowfold.com</a></li><li><i class="fa-solid fa-location-dot"></i>No. 6, Fox Garden, Tirupur — 641 604</li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 SNOWFOLD — Hrithvin Industries. All rights reserved.</p>
+        <p>Manufactured in Tirupur, Tamil Nadu, India</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/919500307500" target="_blank" class="whatsapp-float"><i class="fa-brands fa-whatsapp"></i></a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ once: true, offset: 60 });
+    const API = 'http://localhost:5000/api';
+
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    });
+
+    async function loadBrochures() {
+      const grid = document.getElementById('brochureGrid');
+      try {
+        const res = await fetch(`${API}/brochures`);
+        const brochures = await res.json();
+        if (!brochures || brochures.length === 0) {
+          grid.innerHTML = `<div class="empty-brochure"><i class="fa-solid fa-file-pdf"></i><p>Brochures will be available soon. <a href="contact.html" style="color:var(--gold-400);">Contact us</a> for more information.</p></div>`;
+          return;
+        }
+        grid.innerHTML = brochures.map(b => `
+          <div class="brochure-card" data-aos="fade-up">
+            <div class="brochure-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="brochure-info">
+              <div class="brochure-title">${b.title}</div>
+              <div class="brochure-type">${b.type === 'company' ? 'Company Brochure' : 'Product Brochure'}</div>
+            </div>
+            <div class="brochure-actions">
+              <a href="${b.fileUrl}" target="_blank" class="btn-primary-gold btn-sm" style="padding:8px 16px; font-size:13px;">
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+              <a href="${b.fileUrl}" target="_blank" class="btn-outline-gold btn-sm" style="padding:8px 16px; font-size:13px;">
+                <i class="fa-solid fa-eye"></i> Preview
+              </a>
+            </div>
+          </div>`).join('');
+        AOS.refresh();
+      } catch (err) {
+        grid.innerHTML = `<div class="empty-brochure"><i class="fa-solid fa-file-pdf"></i><p>Brochures coming soon. <a href="contact.html" style="color:var(--gold-400);">Contact us</a> for a copy.</p></div>`;
+      }
+    }
+    loadBrochures();
+  </script>
+</body>
+</html>

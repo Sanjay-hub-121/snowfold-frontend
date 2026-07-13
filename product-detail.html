@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Detail — SNOWFOLD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .detail-wrap { padding: 140px 0 80px; }
+    .breadcrumb { font-size: 13px; color: var(--gray-500); margin-bottom: 32px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .breadcrumb a { color: var(--gray-500); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--gold-400); }
+    .breadcrumb i { font-size: 10px; }
+
+    .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+
+    /* Gallery */
+    .gallery-main { border-radius: 20px; overflow: hidden; background: #f0ece4; aspect-ratio: 1; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(212,175,55,0.12); }
+    .gallery-main img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .gallery-main img:hover { transform: scale(1.04); }
+    .gallery-thumbs { display: flex; gap: 10px; flex-wrap: wrap; }
+    .gallery-thumb { width: 72px; height: 72px; border-radius: 10px; overflow: hidden; background: #f0ece4; border: 2px solid transparent; cursor: pointer; transition: border-color 0.2s; flex-shrink: 0; }
+    .gallery-thumb.active { border-color: var(--gold-500); }
+    .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #0a1524, #122036); color: rgba(212,175,55,0.25); font-size: 64px; border-radius: 20px; aspect-ratio: 1; }
+
+    /* Info */
+    .detail-cat-tag { display: inline-block; padding: 4px 14px; background: rgba(212,175,55,0.1); color: var(--gold-400); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; border-radius: 999px; border: 1px solid rgba(212,175,55,0.2); margin-bottom: 14px; }
+    .detail-name { font-family: var(--font-display); font-size: clamp(28px, 3vw, 40px); font-weight: 700; color: var(--white); margin-bottom: 16px; line-height: 1.2; }
+    .detail-desc { font-size: 16px; color: var(--gray-300); line-height: 1.8; margin-bottom: 28px; }
+
+    .specs-box { background: rgba(10,21,36,0.6); border: 1px solid rgba(212,175,55,0.12); border-radius: 14px; padding: 22px; margin-bottom: 28px; }
+    .specs-title { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-400); margin-bottom: 16px; }
+    .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .spec-item { display: flex; flex-direction: column; gap: 3px; }
+    .spec-label { font-size: 11px; font-weight: 600; color: var(--gray-500); letter-spacing: 0.06em; text-transform: uppercase; }
+    .spec-value { font-size: 14px; color: var(--off-white); font-weight: 500; }
+
+    .usage-list { margin-bottom: 28px; }
+    .usage-list-title { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-400); margin-bottom: 12px; }
+    .usage-list ul { display: flex; flex-direction: column; gap: 8px; }
+    .usage-list li { font-size: 14px; color: var(--gray-300); display: flex; align-items: center; gap: 10px; }
+    .usage-list li i { color: var(--gold-500); font-size: 11px; flex-shrink: 0; }
+
+    .detail-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .detail-actions a { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 700; transition: all 0.2s ease; }
+
+    .skeleton-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+    .skeleton-box { background: linear-gradient(90deg, #0a1524 25%, #122036 50%, #0a1524 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; border-radius: 20px; }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+    @media(max-width: 900px) {
+      .detail-grid { grid-template-columns: 1fr; gap: 40px; }
+      .skeleton-detail { grid-template-columns: 1fr; }
+    }
+    @media(max-width: 560px) { .specs-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/images/logo-white.png" alt="SNOWFOLD" class="nav-logo" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="products.html" class="nav-link active">Products</a></li>
+        <li><a href="brochure.html" class="nav-link">Brochure</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn-inquiry">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="detail-wrap">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <a href="products.html">Products</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span id="breadcrumbName" style="color: var(--gold-400);">Loading...</span>
+      </div>
+
+      <div id="detailContent">
+        <div class="skeleton-detail">
+          <div class="skeleton-box" style="height: 420px;"></div>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div class="skeleton-box" style="height: 32px; width: 120px;"></div>
+            <div class="skeleton-box" style="height: 48px;"></div>
+            <div class="skeleton-box" style="height: 80px;"></div>
+            <div class="skeleton-box" style="height: 160px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://wa.me/919500307500" target="_blank" class="whatsapp-float"><i class="fa-brands fa-whatsapp"></i></a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ once: true });
+    const API = 'http://localhost:5000/api';
+
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    });
+
+    function switchImage(url, thumbEl) {
+      document.getElementById('mainImg').src = url;
+      document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+      thumbEl.classList.add('active');
+    }
+
+    async function loadProduct() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+
+      if (!id) {
+        window.location.href = 'products.html';
+        return;
+      }
+
+      try {
+        const res = await fetch(`${API}/products/${id}`);
+        if (!res.ok) throw new Error('Not found');
+        const p = await res.json();
+
+        document.title = `${p.name} — SNOWFOLD`;
+        document.getElementById('breadcrumbName').textContent = p.name;
+
+        const hasImages = p.images && p.images.length > 0;
+
+        const galleryMain = hasImages
+          ? `<div class="gallery-main"><img id="mainImg" src="${p.images[0].url}" alt="${p.name}" /></div>`
+          : `<div class="gallery-placeholder"><i class="fa-solid fa-image"></i></div>`;
+
+        const thumbs = hasImages && p.images.length > 1
+          ? `<div class="gallery-thumbs">
+              ${p.images.map((img, i) => `
+                <div class="gallery-thumb ${i===0?'active':''}" onclick="switchImage('${img.url}', this)">
+                  <img src="${img.url}" alt="${p.name} ${i+1}" />
+                </div>`).join('')}
+            </div>`
+          : '';
+
+        const specs = p.specifications || {};
+        const specRows = [
+          specs.material && `<div class="spec-item"><span class="spec-label">Material</span><span class="spec-value">${specs.material}</span></div>`,
+          specs.packSize && `<div class="spec-item"><span class="spec-label">Pack Size</span><span class="spec-value">${specs.packSize}</span></div>`,
+          specs.dimensions && `<div class="spec-item"><span class="spec-label">Dimensions</span><span class="spec-value">${specs.dimensions}</span></div>`,
+          specs.packagingDetails && `<div class="spec-item"><span class="spec-label">Packaging</span><span class="spec-value">${specs.packagingDetails}</span></div>`,
+        ].filter(Boolean).join('');
+
+        const usageList = specs.usageApplications
+          ? `<div class="usage-list">
+              <div class="usage-list-title">Usage Applications</div>
+              <ul>${specs.usageApplications.split(',').map(u => `<li><i class="fa-solid fa-check"></i>${u.trim()}</li>`).join('')}</ul>
+            </div>`
+          : '';
+
+        document.getElementById('detailContent').innerHTML = `
+          <div class="detail-grid" data-aos="fade-up">
+            <div>
+              ${galleryMain}
+              ${thumbs}
+            </div>
+            <div>
+              <div class="detail-cat-tag">${p.category}</div>
+              <h1 class="detail-name">${p.name}</h1>
+              <p class="detail-desc">${p.description}</p>
+
+              ${specRows ? `
+                <div class="specs-box">
+                  <div class="specs-title">Product Specifications</div>
+                  <div class="specs-grid">${specRows}</div>
+                </div>` : ''}
+
+              ${usageList}
+
+              <div class="detail-actions">
+                <a href="brochure.html" class="btn-outline-gold">
+                  <i class="fa-solid fa-download"></i> Download Brochure
+                </a>
+                <a href="https://wa.me/919500307500?text=Hi, I am interested in ${encodeURIComponent(p.name)}" target="_blank" class="btn-primary-gold">
+                  <i class="fa-brands fa-whatsapp"></i> Enquire Now
+                </a>
+              </div>
+            </div>
+          </div>`;
+
+        AOS.refresh();
+      } catch (err) {
+        document.getElementById('detailContent').innerHTML = `
+          <div style="text-align:center; padding: 80px 20px; color: var(--gray-500);">
+            <i class="fa-solid fa-triangle-exclamation" style="font-size:48px; margin-bottom:16px; display:block; color: var(--gold-400);"></i>
+            <p>Product not found. <a href="products.html" style="color:var(--gold-400);">Back to Products →</a></p>
+          </div>`;
+      }
+    }
+
+    loadProduct();
+  </script>
+</body>
+</html>

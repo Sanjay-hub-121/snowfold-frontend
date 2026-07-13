@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — SNOWFOLD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .page-hero { padding: 140px 0 60px; text-align: center; background: linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 100%); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 300px; background: radial-gradient(ellipse, rgba(212,175,55,0.07) 0%, transparent 70%); pointer-events: none; }
+    .page-hero-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-400); margin-bottom: 14px; }
+    .page-hero-title { font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px); font-weight: 700; color: var(--white); margin-bottom: 16px; }
+    .page-hero-subtitle { font-size: 17px; color: var(--gray-300); max-width: 540px; margin: 0 auto; line-height: 1.7; }
+
+    .about-intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .about-intro-img { position: relative; border-radius: 20px; overflow: visible; }
+    .about-intro-img img { width: 100%; height: 480px; object-fit: cover; border-radius: 20px; border: 1px solid rgba(212,175,55,0.12); background: #f0ece4; }
+    .about-intro-badge { position: absolute; bottom: 28px; right: -24px; background: linear-gradient(135deg, var(--gold-400), var(--gold-500)); color: var(--navy-950); padding: 16px 20px; border-radius: 12px; text-align: center; box-shadow: 0 8px 32px rgba(212,175,55,0.3); }
+    .badge-num { display: block; font-family: var(--font-display); font-size: 30px; font-weight: 700; line-height: 1; }
+    .badge-lbl { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; margin-top: 4px; }
+
+    .mv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+    .mv-card { background: rgba(10,21,36,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(212,175,55,0.12); border-radius: 20px; padding: 28px; transition: all 0.3s ease; }
+    .mv-card:hover { border-color: rgba(212,175,55,0.3); transform: translateY(-4px); }
+    .mv-icon { width: 50px; height: 50px; border-radius: 12px; background: rgba(212,175,55,0.1); display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--gold-400); margin-bottom: 18px; }
+    .mv-card h3 { font-family: var(--font-display); font-size: 20px; color: var(--white); margin-bottom: 10px; }
+    .mv-card p { font-size: 14px; color: var(--gray-300); line-height: 1.75; }
+
+    .stats-strip { background: var(--navy-950); border-top: 1px solid rgba(212,175,55,0.1); border-bottom: 1px solid rgba(212,175,55,0.1); padding: 60px 0; }
+    .stats-strip-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center; }
+    .strip-stat-num { font-family: var(--font-display); font-size: 42px; font-weight: 700; line-height: 1; margin-bottom: 8px; }
+    .strip-stat-lbl { font-size: 13px; color: var(--gray-500); font-weight: 500; }
+
+    .values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .val-item { display: flex; align-items: flex-start; gap: 14px; padding: 20px; background: rgba(10,21,36,0.4); border: 1px solid rgba(212,175,55,0.08); border-radius: 14px; }
+    .val-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(212,175,55,0.1); display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--gold-400); flex-shrink: 0; }
+    .val-item h4 { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+    .val-item p { font-size: 13px; color: var(--gray-400, #9ca3af); line-height: 1.6; }
+
+    .cert-grid { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 24px; }
+    .cert-badge { display: flex; align-items: center; gap: 8px; padding: 10px 18px; background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.2); border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--gold-400); }
+
+    @media(max-width:900px) {
+      .about-intro-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-intro-badge { right: 0; }
+      .mv-grid { grid-template-columns: 1fr; }
+      .stats-strip-grid { grid-template-columns: repeat(2, 1fr); }
+      .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/images/logo-white.png" alt="SNOWFOLD" class="nav-logo" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link active">About Us</a></li>
+        <li><a href="products.html" class="nav-link">Products</a></li>
+        <li><a href="brochure.html" class="nav-link">Brochure</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn-inquiry">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-eyebrow">Our Story</div>
+      <h1 class="page-hero-title">About <span class="gold-gradient-text">SNOWFOLD</span></h1>
+      <p class="page-hero-subtitle">Born from a belief that everyday products deserve extraordinary quality — manufactured with care in Tirupur, Tamil Nadu.</p>
+    </div>
+  </section>
+
+  <!-- Company Overview -->
+  <section class="section" style="background: var(--navy-800);">
+    <div class="container">
+      <div class="about-intro-grid">
+        <div class="about-intro-img" data-aos="fade-right">
+          <img src="assets/images/products/card-facial.png" alt="SNOWFOLD Products" />
+          <div class="about-intro-badge">
+            <span class="badge-num">100%</span>
+            <span class="badge-lbl">Virgin Pulp</span>
+          </div>
+        </div>
+        <div data-aos="fade-left">
+          <div class="section-eyebrow">Who We Are</div>
+          <h2 class="section-title">Crafted for <span class="gold-gradient-text">Everyday</span> Moments</h2>
+          <p class="section-body">SNOWFOLD is a premium tissue brand by Hrithvin Industries, Tirupur. We are dedicated to providing premium quality tissue products that combine softness, strength and reliability — for homes, businesses and hospitality environments across India.</p>
+          <p class="section-body">Our products are crafted with advanced technology and strict quality standards to ensure the best experience for our customers — because every touch matters.</p>
+          <div class="cert-grid">
+            <div class="cert-badge"><i class="fa-solid fa-certificate"></i> GSTIN Registered</div>
+            <div class="cert-badge"><i class="fa-solid fa-shield-halved"></i> Quality Guaranteed</div>
+            <div class="cert-badge"><i class="fa-solid fa-leaf"></i> Eco Conscious</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Strip -->
+  <section class="stats-strip">
+    <div class="container">
+      <div class="stats-strip-grid">
+        <div data-aos="fade-up" data-aos-delay="0">
+          <div class="strip-stat-num gold-gradient-text">500+</div>
+          <div class="strip-stat-lbl">Happy Clients</div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="100">
+          <div class="strip-stat-num gold-gradient-text">1000+</div>
+          <div class="strip-stat-lbl">Retail Outlets</div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="200">
+          <div class="strip-stat-num gold-gradient-text">1000+</div>
+          <div class="strip-stat-lbl">Business Partners</div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="300">
+          <div class="strip-stat-num gold-gradient-text">10+</div>
+          <div class="strip-stat-lbl">Years of Excellence</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Vision Values -->
+  <section class="section" style="background: var(--navy-900);">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-eyebrow">What Drives Us</div>
+        <h2 class="section-title">Mission, Vision & <span class="gold-gradient-text">Values</span></h2>
+      </div>
+      <div class="mv-grid">
+        <div class="mv-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="mv-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <h3>Our Mission</h3>
+          <p>To deliver premium tissue products that enhance everyday hygiene and customer satisfaction — making quality accessible to every home and business across India.</p>
+        </div>
+        <div class="mv-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="mv-icon"><i class="fa-solid fa-eye"></i></div>
+          <h3>Our Vision</h3>
+          <p>To be a trusted leader in the tissue industry known for quality, innovation and sustainability — setting the benchmark for premium hygiene products in India.</p>
+        </div>
+        <div class="mv-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="mv-icon"><i class="fa-solid fa-star"></i></div>
+          <h3>Our Values</h3>
+          <p>Quality First. Customer Focused. Innovation. Integrity. Sustainability. These principles guide every product we manufacture and every relationship we build.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values Detail -->
+  <section class="section" style="background: var(--navy-800);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;">
+        <div data-aos="fade-right">
+          <div class="section-eyebrow">What We Stand For</div>
+          <h2 class="section-title">Our <span class="gold-gradient-text">Core Values</span></h2>
+          <p class="section-body">Every product that leaves our facility in Tirupur carries with it our commitment to these principles — a promise to every customer who trusts the SNOWFOLD name.</p>
+          <div class="values-grid" style="margin-top: 28px;">
+            <div class="val-item">
+              <div class="val-icon"><i class="fa-solid fa-seedling"></i></div>
+              <div><h4>100% Virgin Pulp</h4><p>Never recycled. Always pure. Highest softness and hygiene guaranteed.</p></div>
+            </div>
+            <div class="val-item">
+              <div class="val-icon"><i class="fa-solid fa-heart"></i></div>
+              <div><h4>Safe for Family</h4><p>Gentle on skin, free from harmful chemicals. Safe for all ages.</p></div>
+            </div>
+            <div class="val-item">
+              <div class="val-icon"><i class="fa-solid fa-handshake"></i></div>
+              <div><h4>Business Trusted</h4><p>Hotels, restaurants, hospitals rely on us for consistent bulk supply.</p></div>
+            </div>
+            <div class="val-item">
+              <div class="val-icon"><i class="fa-solid fa-truck-fast"></i></div>
+              <div><h4>Pan India Supply</h4><p>Manufactured in Tirupur, delivered reliably across India.</p></div>
+            </div>
+          </div>
+        </div>
+        <div data-aos="fade-left">
+          <img src="assets/images/products/card-kitchen.png" alt="SNOWFOLD Manufacturing" style="width:100%; border-radius:20px; border:1px solid rgba(212,175,55,0.12); background:#f0ece4; object-fit:cover; height:480px;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Manufacturing -->
+  <section class="section" style="background: var(--navy-900);">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-eyebrow">Manufacturing</div>
+        <h2 class="section-title">Built on <span class="gold-gradient-text">Quality</span> at Every Step</h2>
+        <p class="section-subtitle">Our facility in Tirupur follows rigorous quality control standards at every stage — from raw material sourcing to final packaging.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;" data-aos="fade-up" data-aos-delay="100">
+        <div class="mv-card">
+          <div class="mv-icon"><i class="fa-solid fa-microscope"></i></div>
+          <h3>Quality Testing</h3>
+          <p>Every batch undergoes strict quality testing before packaging — ensuring consistent softness, strength and hygiene in every product.</p>
+        </div>
+        <div class="mv-card">
+          <div class="mv-icon"><i class="fa-solid fa-industry"></i></div>
+          <h3>Modern Facility</h3>
+          <p>Our Tirupur manufacturing plant uses modern equipment and strict process controls to produce premium tissue products at scale.</p>
+        </div>
+        <div class="mv-card">
+          <div class="mv-icon"><i class="fa-solid fa-recycle"></i></div>
+          <h3>Sustainable Practices</h3>
+          <p>We are committed to responsible sourcing and sustainable manufacturing practices — minimising our environmental impact at every step.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-bg"></div>
+    <div class="container">
+      <div class="cta-content" data-aos="fade-up">
+        <div class="section-eyebrow light">Get in Touch</div>
+        <h2 class="cta-title">Ready to <span class="gold-gradient-text">Partner</span> with SNOWFOLD?</h2>
+        <p class="cta-subtitle">Whether you're a distributor, retailer or bulk buyer — we'd love to hear from you.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn-primary-gold">Contact Us <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="products.html" class="btn-outline-gold">View Products</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/images/logo-white.png" alt="SNOWFOLD" class="footer-logo" />
+          <div class="footer-tagline">Softness, Folded In.</div>
+          <p class="footer-about">Premium tissue products manufactured by Hrithvin Industries, Tirupur.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://wa.me/919500307500"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col"><div class="footer-col-title">Products</div><ul><li><a href="products.html">Facial Tissue</a></li><li><a href="products.html">Kitchen Towel</a></li><li><a href="products.html">Toilet Tissue</a></li><li><a href="products.html">Table Napkins</a></li></ul></div>
+        <div class="footer-col"><div class="footer-col-title">Company</div><ul><li><a href="about.html">About Us</a></li><li><a href="brochure.html">Brochures</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><div class="footer-col-title">Contact</div><ul class="footer-contact"><li><i class="fa-solid fa-phone"></i><a href="tel:+919500307500">+91 95003 07500</a></li><li><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/919500307500">WhatsApp</a></li><li><i class="fa-solid fa-envelope"></i><a href="mailto:info@snowfold.com">info@snowfold.com</a></li><li><i class="fa-solid fa-location-dot"></i>No. 6, Fox Garden, Tirupur — 641 604</li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 SNOWFOLD — Hrithvin Industries. All rights reserved.</p>
+        <p>Manufactured in Tirupur, Tamil Nadu, India</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/919500307500" target="_blank" class="whatsapp-float"><i class="fa-brands fa-whatsapp"></i></a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ once: true, offset: 60 });
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    });
+  </script>
+</body>
+</html>

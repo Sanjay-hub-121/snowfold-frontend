@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products — SNOWFOLD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .page-hero {
+      padding: 140px 0 60px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 300px;
+      background: radial-gradient(ellipse, rgba(212,175,55,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-400); margin-bottom: 14px; }
+    .page-hero-title { font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px); font-weight: 700; color: var(--white); margin-bottom: 16px; }
+    .page-hero-subtitle { font-size: 17px; color: var(--gray-300); max-width: 540px; margin: 0 auto; line-height: 1.7; }
+
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .filter-btn {
+      padding: 9px 22px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      background: var(--bg-card, #0a1524);
+      border: 1px solid rgba(212,175,55,0.15);
+      color: var(--gray-300);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: var(--font-body);
+    }
+    .filter-btn:hover { border-color: rgba(212,175,55,0.4); color: var(--white); }
+    .filter-btn.active {
+      background: rgba(212,175,55,0.12);
+      border-color: var(--gold-500);
+      color: var(--gold-400);
+    }
+
+    .products-full-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .pf-card {
+      background: rgba(10,21,36,0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(212,175,55,0.12);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .pf-card:hover {
+      border-color: rgba(212,175,55,0.35);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+    }
+    .pf-card-img {
+      height: 260px;
+      overflow: hidden;
+      background: #f0ece4;
+      position: relative;
+    }
+    .pf-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.5s ease;
+    }
+    .pf-card:hover .pf-card-img img { transform: scale(1.05); }
+    .pf-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0a1524, #122036);
+      color: rgba(212,175,55,0.3);
+      font-size: 48px;
+    }
+
+    .pf-card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+    .pf-cat-tag {
+      display: inline-block;
+      padding: 3px 12px;
+      background: rgba(212,175,55,0.1);
+      color: var(--gold-400);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      border-radius: 999px;
+      border: 1px solid rgba(212,175,55,0.2);
+      margin-bottom: 10px;
+    }
+    .pf-card-name { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+    .pf-card-desc { font-size: 13px; color: var(--gray-300); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+    .pf-card-specs { display: flex; flex-direction: column; gap: 5px; margin-bottom: 18px; }
+    .pf-card-specs span { font-size: 12px; color: var(--gray-500); display: flex; align-items: center; gap: 6px; }
+    .pf-card-specs i { color: var(--gold-500); font-size: 10px; }
+    .pf-card-actions { display: flex; gap: 10px; }
+    .pf-card-actions a { flex: 1; text-align: center; padding: 10px; border-radius: 10px; font-size: 13px; font-weight: 600; transition: all 0.2s ease; }
+    .btn-view { background: linear-gradient(135deg, var(--gold-400), var(--gold-500)); color: #050d18; }
+    .btn-view:hover { background: var(--gold-300); }
+    .btn-whatsapp-sm { background: rgba(37,211,102,0.1); color: #25d366; border: 1px solid rgba(37,211,102,0.3); display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .btn-whatsapp-sm:hover { background: rgba(37,211,102,0.2); }
+
+    .empty-products {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--gray-500);
+    }
+    .empty-products i { font-size: 48px; margin-bottom: 16px; opacity: 0.3; display: block; }
+
+    .skeleton-card {
+      background: linear-gradient(90deg, #0a1524 25%, #122036 50%, #0a1524 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite;
+      border-radius: 20px;
+      height: 400px;
+    }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+    @media(max-width: 900px) { .products-full-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width: 560px) { .products-full-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/images/logo-white.png" alt="SNOWFOLD" class="nav-logo" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="products.html" class="nav-link active">Products</a></li>
+        <li><a href="brochure.html" class="nav-link">Brochure</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn-inquiry">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-eyebrow">Our Range</div>
+      <h1 class="page-hero-title">Our Premium <span class="gold-gradient-text">Products</span></h1>
+      <p class="page-hero-subtitle">High quality tissue products for every need — crafted from 100% virgin pulp for homes, hotels, restaurants and businesses.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 60px;">
+    <div class="container">
+
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-btn active" data-cat="">All Products</button>
+        <button class="filter-btn" data-cat="Facial Tissue">Facial Tissue</button>
+        <button class="filter-btn" data-cat="Kitchen Towel">Kitchen Towel</button>
+        <button class="filter-btn" data-cat="Toilet Tissue">Toilet Tissue</button>
+        <button class="filter-btn" data-cat="Napkins">Napkins</button>
+      </div>
+
+      <div class="products-full-grid" id="productsGrid">
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-bg"></div>
+    <div class="container">
+      <div class="cta-content" data-aos="fade-up">
+        <div class="section-eyebrow light">Bulk Orders Welcome</div>
+        <h2 class="cta-title">Need a <span class="gold-gradient-text">Custom Quote?</span></h2>
+        <p class="cta-subtitle">Contact us for bulk pricing, distribution partnerships and custom packaging solutions.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn-primary-gold">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="https://wa.me/919500307500" target="_blank" class="btn-whatsapp-large"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/images/logo-white.png" alt="SNOWFOLD" class="footer-logo" />
+          <div class="footer-tagline">Softness, Folded In.</div>
+          <p class="footer-about">Premium tissue products manufactured by Hrithvin Industries, Tirupur.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://wa.me/919500307500"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Products</div>
+          <ul>
+            <li><a href="products.html">Facial Tissue</a></li>
+            <li><a href="products.html">Kitchen Towel</a></li>
+            <li><a href="products.html">Toilet Tissue</a></li>
+            <li><a href="products.html">Table Napkins</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="brochure.html">Brochures</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-contact">
+            <li><i class="fa-solid fa-phone"></i><a href="tel:+919500307500">+91 95003 07500</a></li>
+            <li><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/919500307500">WhatsApp</a></li>
+            <li><i class="fa-solid fa-envelope"></i><a href="mailto:info@snowfold.com">info@snowfold.com</a></li>
+            <li><i class="fa-solid fa-location-dot"></i>No. 6, Fox Garden, Tirupur — 641 604</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 SNOWFOLD — Hrithvin Industries. All rights reserved.</p>
+        <p>Manufactured in Tirupur, Tamil Nadu, India</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/919500307500" target="_blank" class="whatsapp-float"><i class="fa-brands fa-whatsapp"></i></a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ once: true, offset: 60 });
+
+    const API = 'http://localhost:5000/api';
+    let allProducts = [];
+    let activeCategory = '';
+
+    // Check URL param for category
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlCat = urlParams.get('category');
+    if (urlCat) {
+      activeCategory = urlCat.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    }
+
+    async function loadProducts() {
+      try {
+        const res = await fetch(`${API}/products`);
+        allProducts = await res.json();
+        renderProducts();
+        setActiveFilter();
+      } catch (err) {
+        document.getElementById('productsGrid').innerHTML = `
+          <div class="empty-products">
+            <i class="fa-solid fa-box-open"></i>
+            <p>Products are being loaded. Please check back shortly.</p>
+          </div>`;
+      }
+    }
+
+    function setActiveFilter() {
+      if (!activeCategory) return;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.cat === activeCategory) btn.classList.add('active');
+      });
+      renderProducts();
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById('productsGrid');
+      const filtered = activeCategory
+        ? allProducts.filter(p => p.category === activeCategory)
+        : allProducts;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-products">
+            <i class="fa-solid fa-box-open"></i>
+            <p>No products found${activeCategory ? ' in this category' : ''}. Check back soon!</p>
+          </div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map((p, i) => {
+        const img = p.images && p.images.length > 0
+          ? `<img src="${p.images[0].url}" alt="${p.name}" loading="lazy" />`
+          : `<div class="pf-placeholder"><i class="fa-solid fa-image"></i></div>`;
+
+        const specs = [
+          p.specifications?.material && `<span><i class="fa-solid fa-check"></i>${p.specifications.material}</span>`,
+          p.specifications?.packSize && `<span><i class="fa-solid fa-check"></i>${p.specifications.packSize}</span>`,
+          p.specifications?.usageApplications && `<span><i class="fa-solid fa-check"></i>${p.specifications.usageApplications}</span>`,
+        ].filter(Boolean).join('');
+
+        return `
+          <div class="pf-card" data-aos="fade-up" data-aos-delay="${(i % 3) * 80}">
+            <div class="pf-card-img">${img}</div>
+            <div class="pf-card-body">
+              <div class="pf-cat-tag">${p.category}</div>
+              <div class="pf-card-name">${p.name}</div>
+              <div class="pf-card-desc">${p.description}</div>
+              ${specs ? `<div class="pf-card-specs">${specs}</div>` : ''}
+              <div class="pf-card-actions">
+                <a href="product-detail.html?id=${p._id}" class="btn-view">View Details</a>
+                <a href="https://wa.me/919500307500?text=Hi, I am interested in ${encodeURIComponent(p.name)}" target="_blank" class="btn-whatsapp-sm">
+                  <i class="fa-brands fa-whatsapp"></i> Order
+                </a>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+
+      AOS.refresh();
+    }
+
+    document.getElementById('filterBar').addEventListener('click', e => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeCategory = btn.dataset.cat;
+      renderProducts();
+    });
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    });
+
+    loadProducts();
+  </script>
+</body>
+</html>
