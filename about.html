@@ -36,6 +36,8 @@
     .strip-stat-lbl { font-size: 13px; color: var(--gray-500); font-weight: 500; }
 
     .values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .manufacturing-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .core-values-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
     .val-item { display: flex; align-items: flex-start; gap: 14px; padding: 20px; background: rgba(10,21,36,0.4); border: 1px solid rgba(212,175,55,0.08); border-radius: 14px; }
     .val-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(212,175,55,0.1); display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--gold-400); flex-shrink: 0; }
     .val-item h4 { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
@@ -50,6 +52,8 @@
       .mv-grid { grid-template-columns: 1fr; }
       .stats-strip-grid { grid-template-columns: repeat(2, 1fr); }
       .values-grid { grid-template-columns: 1fr; }
+      .manufacturing-cards-grid { grid-template-columns: 1fr; gap: 20px; }
+      .core-values-detail-grid { grid-template-columns: 1fr; gap: 40px; }
     }
   </style>
 </head>
@@ -163,7 +167,7 @@
   <!-- Core Values Detail -->
   <section class="section" style="background: var(--navy-800);">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;">
+      <div class="core-values-detail-grid">
         <div data-aos="fade-right">
           <div class="section-eyebrow">What We Stand For</div>
           <h2 class="section-title">Our <span class="gold-gradient-text">Core Values</span></h2>
@@ -202,7 +206,7 @@
         <h2 class="section-title">Built on <span class="gold-gradient-text">Quality</span> at Every Step</h2>
         <p class="section-subtitle">Our facility in Tirupur follows rigorous quality control standards at every stage — from raw material sourcing to final packaging.</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;" data-aos="fade-up" data-aos-delay="100">
+      <div class="manufacturing-cards-grid" data-aos="fade-up" data-aos-delay="100">
         <div class="mv-card">
           <div class="mv-icon"><i class="fa-solid fa-microscope"></i></div>
           <h3>Quality Testing</h3>
