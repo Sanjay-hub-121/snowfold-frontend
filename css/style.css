@@ -465,6 +465,7 @@ ul {
   min-height: 100%;
   overflow: visible;
   padding-left:20px;
+  margin: 48px 0 28px;
 }
 
 .hero-image::before {
@@ -1453,7 +1454,7 @@ left:50px;
     align-items: flex-start;
   }
   .hero-img-container { max-width: 340px; }
-  
+
   .footer-grid {
     grid-template-columns: 1fr;
   }
