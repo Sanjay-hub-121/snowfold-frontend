@@ -4,11 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SNOWFOLD — Softness, Folded In.</title>
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+  <!-- Preload LCP image (hero) - must be first -->
+  <link rel="preload" href="assets/images/hero-products-v3.webp" as="image" type="image/webp" fetchpriority="high">
+
+  <!-- Preconnect to external domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+  <!-- Google Fonts with display=swap -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Async: Font Awesome -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- Async: AOS CSS -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"></noscript>
+
+  <!-- Main CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -67,56 +84,59 @@
       </div>
 
       <div class="hero-image">
-    <div class="hero-img-container">
-        <img
-          src="assets/images/hero-products-v3.webp"
-          alt="SNOWFOLD Premium Products"
-          class="hero-img-main"
-          loading="eager"
-          decoding="async"
-          draggable="false"
-        />
-    </div>
-</div>
+        <div class="hero-img-container">
+          <img
+            src="assets/images/hero-products-v3.webp"
+            alt="SNOWFOLD Premium Products"
+            class="hero-img-main"
+            width="800"
+            height="600"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+            draggable="false"
+          />
+        </div>
+      </div>
     </div>
 
     <!-- Feature Strip -->
     <div class="hero-features-strip" data-aos="fade-up" data-aos-delay="400">
-        <div class="features-row">
-          <div class="feature-item">
-            <i class="fa-solid fa-feather"></i>
-            <span>Soft & Gentle</span>
-          </div>
-          <div class="feature-divider"></div>
-          <div class="feature-item">
-            <i class="fa-solid fa-droplet"></i>
-            <span>Ultra Absorbent</span>
-          </div>
-          <div class="feature-divider"></div>
-          <div class="feature-item">
-            <i class="fa-solid fa-shield-halved"></i>
-            <span>Strong & Thick</span>
-          </div>
-          <div class="feature-divider"></div>
-          <div class="feature-item">
-            <i class="fa-solid fa-bacteria"></i>
-            <span>Hygienic & Safe</span>
-          </div>
-          <div class="feature-divider"></div>
-          <div class="feature-item">
-            <i class="fa-solid fa-star"></i>
-            <span>Premium Quality</span>
-          </div>
-          <div class="feature-divider"></div>
-          <div class="feature-item">
-            <i class="fa-solid fa-leaf"></i>
-            <span>Eco Conscious</span>
-          </div>
+      <div class="features-row">
+        <div class="feature-item">
+          <i class="fa-solid fa-feather"></i>
+          <span>Soft & Gentle</span>
+        </div>
+        <div class="feature-divider"></div>
+        <div class="feature-item">
+          <i class="fa-solid fa-droplet"></i>
+          <span>Ultra Absorbent</span>
+        </div>
+        <div class="feature-divider"></div>
+        <div class="feature-item">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>Strong & Thick</span>
+        </div>
+        <div class="feature-divider"></div>
+        <div class="feature-item">
+          <i class="fa-solid fa-bacteria"></i>
+          <span>Hygienic & Safe</span>
+        </div>
+        <div class="feature-divider"></div>
+        <div class="feature-item">
+          <i class="fa-solid fa-star"></i>
+          <span>Premium Quality</span>
+        </div>
+        <div class="feature-divider"></div>
+        <div class="feature-item">
+          <i class="fa-solid fa-leaf"></i>
+          <span>Eco Conscious</span>
         </div>
       </div>
+    </div>
   </section>
 
-  <!-- ===== MARQUEE TICKER (Enhancement 3) ===== -->
+  <!-- ===== MARQUEE TICKER ===== -->
   <div class="marquee-section">
     <div class="marquee-track">
       <div class="marquee-content">
@@ -146,13 +166,16 @@
       <div class="about-preview-grid">
         <div class="about-preview-image" data-aos="fade-right" data-aos-duration="900">
           <div class="image-frame">
-            <img
-    src="assets/images/products/card-facial.webp"
-    alt="SNOWFOLD Premium Quality"
-    loading="lazy"
-    decoding="async"
-    width="1400"
-    height="700">
+            <picture>
+              <source srcset="assets/images/products/card-facial.webp" type="image/webp">
+              <img
+                src="assets/images/products/card-facial.webp"
+                alt="SNOWFOLD Premium Quality"
+                loading="lazy"
+                decoding="async"
+                width="1400"
+                height="700">
+            </picture>
             <div class="image-badge">
               <span class="badge-number">100%</span>
               <span class="badge-text">Virgin Pulp</span>
@@ -165,7 +188,6 @@
           <p class="section-body">SNOWFOLD was born from a simple belief — that the smallest everyday products deserve the highest standards of quality. Manufactured by Hrithvin Industries in Tirupur, we bring premium tissue solutions to homes, restaurants, hotels, and businesses across India.</p>
           <p class="section-body">Every product we make is crafted from 100% virgin pulp, ensuring exceptional softness, superior absorbency, and uncompromising hygiene — because your family and guests deserve nothing less.</p>
 
-          <!-- Counter Stats (Enhancement 2) -->
           <div class="about-stats">
             <div class="stat-counter">
               <div class="counter-number gold-gradient-text" data-target="500">0</div>
@@ -192,7 +214,7 @@
     </div>
   </section>
 
-  <!-- ===== PRODUCT CATEGORIES (Enhancement 4 & 5) ===== -->
+  <!-- ===== PRODUCT CATEGORIES ===== -->
   <section class="section products-section" id="products">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
@@ -204,13 +226,16 @@
       <div class="products-grid">
         <div class="product-glass-card" data-aos="fade-right" data-aos-delay="0">
           <div class="product-cat-image">
-            <img
-    src="assets/images/products/card-facial.webp"
-    alt="Facial Tissue"
-    loading="lazy"
-    decoding="async"
-    width="1400"
-    height="700">
+            <picture>
+              <source srcset="assets/images/products/card-facial.webp" type="image/webp">
+              <img
+                src="assets/images/products/card-facial.webp"
+                alt="Facial Tissue"
+                loading="lazy"
+                decoding="async"
+                width="1400"
+                height="700">
+            </picture>
             <div class="product-cat-overlay">
               <a href="products.html" class="btn-view-product">View Details <i class="fa-solid fa-arrow-right"></i></a>
             </div>
@@ -229,13 +254,16 @@
 
         <div class="product-glass-card" data-aos="fade-left" data-aos-delay="100">
           <div class="product-cat-image">
-            <img
-    src="assets/images/products/card-kitchen.webp"
-    alt="Kitchen Towel"
-    loading="lazy"
-    decoding="async"
-    width="795"
-    height="1125">
+            <picture>
+              <source srcset="assets/images/products/card-kitchen.webp" type="image/webp">
+              <img
+                src="assets/images/products/card-kitchen.webp"
+                alt="Kitchen Towel"
+                loading="lazy"
+                decoding="async"
+                width="795"
+                height="1125">
+            </picture>
             <div class="product-cat-overlay">
               <a href="products.html" class="btn-view-product">View Details <i class="fa-solid fa-arrow-right"></i></a>
             </div>
@@ -254,13 +282,16 @@
 
         <div class="product-glass-card" data-aos="fade-right" data-aos-delay="200">
           <div class="product-cat-image">
-            <img
-    src="assets/images/products/card-toilet.webp"
-    alt="Toilet Tissue"
-    loading="lazy"
-    decoding="async"
-    width="795"
-    height="1125">
+            <picture>
+              <source srcset="assets/images/products/card-toilet.webp" type="image/webp">
+              <img
+                src="assets/images/products/card-toilet.webp"
+                alt="Toilet Tissue"
+                loading="lazy"
+                decoding="async"
+                width="795"
+                height="1125">
+            </picture>
             <div class="product-cat-overlay">
               <a href="products.html" class="btn-view-product">View Details <i class="fa-solid fa-arrow-right"></i></a>
             </div>
@@ -279,13 +310,16 @@
 
         <div class="product-glass-card" data-aos="fade-left" data-aos-delay="300">
           <div class="product-cat-image">
-            <img
-    src="assets/images/products/card-napkin.webp"
-    alt="Napkins"
-    loading="lazy"
-    decoding="async"
-    width="843"
-    height="1125">
+            <picture>
+              <source srcset="assets/images/products/card-napkin.webp" type="image/webp">
+              <img
+                src="assets/images/products/card-napkin.webp"
+                alt="Napkins"
+                loading="lazy"
+                decoding="async"
+                width="843"
+                height="1125">
+            </picture>
             <div class="product-cat-overlay">
               <a href="products.html" class="btn-view-product">View Details <i class="fa-solid fa-arrow-right"></i></a>
             </div>
@@ -346,7 +380,10 @@
   <!-- ===== NAPKIN FEATURE BANNER ===== -->
   <section class="napkin-banner">
     <div class="napkin-banner-bg">
-      <img src="assets/images/products/napkin-hero.jpg" alt="SNOWFOLD Napkin" />
+      <picture>
+        <source srcset="assets/images/products/napkin-hero.webp" type="image/webp">
+        <img src="assets/images/products/napkin-hero.jpg" alt="SNOWFOLD Napkin" loading="lazy" decoding="async" width="1200" height="600" />
+      </picture>
       <div class="napkin-banner-overlay"></div>
     </div>
     <div class="napkin-banner-content" data-aos="fade-up">
@@ -357,7 +394,7 @@
     </div>
   </section>
 
-  <!-- ===== TESTIMONIALS (Dynamic from DB) ===== -->
+  <!-- ===== TESTIMONIALS ===== -->
   <section class="section testimonials-section">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
@@ -365,7 +402,6 @@
         <h2 class="section-title">Trusted by <span class="gold-gradient-text">Businesses</span> Across India</h2>
       </div>
       <div class="testimonials-grid" id="testimonialsGrid">
-        <!-- Loaded dynamically from backend -->
         <div class="testimonial-skeleton"></div>
         <div class="testimonial-skeleton"></div>
         <div class="testimonial-skeleton"></div>
@@ -404,20 +440,28 @@
         <div class="manufacturing-image" data-aos="fade-left">
           <div class="manufacturing-img-stack">
             <div class="mfg-img-main">
-              <img
-    src="assets/images/products/card-facial.webp"
-    alt="SNOWFOLD Quality"
-    loading="lazy"
-    decoding="async"
-    width="1400"
-    height="700">
+              <picture>
+                <source srcset="assets/images/products/card-facial.webp" type="image/webp">
+                <img
+                  src="assets/images/products/card-facial.webp"
+                  alt="SNOWFOLD Quality"
+                  loading="lazy"
+                  decoding="async"
+                  width="1400"
+                  height="700">
+              </picture>
             </div>
             <div class="mfg-img-secondary">
-              <img
-    src="assets/images/products/mfg-napkin.png"
-    alt="SNOWFOLD Products"
-    loading="lazy"
-    decoding="async">
+              <picture>
+                <source srcset="assets/images/products/mfg-napkin.webp" type="image/webp">
+                <img
+                  src="assets/images/products/mfg-napkin.png"
+                  alt="SNOWFOLD Products"
+                  loading="lazy"
+                  decoding="async"
+                  width="600"
+                  height="400">
+              </picture>
             </div>
           </div>
         </div>
