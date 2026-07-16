@@ -478,10 +478,10 @@ ul {
 .hero-img-container {
   position: relative;
   z-index: 1;
-  width: 128%;
-  max-width: 1100px;
+  width: 100%;
+  max-width: 960px;
   aspect-ratio: 1571 / 898;
-  margin-left: -8%;
+  margin: 0 auto;
   background: transparent;
 }
 
@@ -489,16 +489,14 @@ ul {
   width: 100%;
   height: auto;
   object-fit: contain;
-  transform:scale(1.02);
-  transform-origin:center;
-  transition:transform .4s ease;
-  animation:heroFloat 5s ease-in-out infinite;
+  transform-origin: center;
+  transition: transform .4s ease;
+  animation: heroFloat 5s ease-in-out infinite;
   object-position: center center;
   display: block;
   filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.45));
-  position:relative;
-  left:0px;
-  transform:translateX(-22px) scale(1.02);
+  position: relative;
+  transform: translateX(0) scale(1.02);
 }
 
 @keyframes heroFloat{
@@ -1421,18 +1419,18 @@ transform:translateY(0) translateX(-22px) scale(1.02);
 @media (min-width:1400px){
 
 .hero-container{
-grid-template-columns:39% 61%;
-gap:40px;
+  grid-template-columns:39% 61%;
+  gap:40px;
 }
 
 .hero-img-container{
-width:145%;
-margin-left:-12%;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .hero-img-main{
-transform:scale(1.08);
-left:50px;
+  transform: translateX(0) scale(1.05);
 }
 
 }
