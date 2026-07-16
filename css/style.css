@@ -1,8 +1,3 @@
-/* ============================================
-   SNOWFOLD — Frontend Design System v2
-   Reference Design + 5 Enhancements
-   ============================================ */
-
 :root {
   --navy-950: #050d18;
   --navy-900: #07111f;
@@ -61,14 +56,12 @@ ul {
   list-style: none;
 }
 
-/* ============ CONTAINER ============ */
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 24px;
 }
 
-/* ============ GOLD GRADIENT TEXT ============ */
 .gold-gradient-text {
   background: linear-gradient(135deg, var(--gold-300), var(--gold-500), var(--gold-300));
   -webkit-background-clip: text;
@@ -79,7 +72,6 @@ ul {
   line-height:inherit;
 }
 
-/* ============ TYPOGRAPHY ============ */
 .section-eyebrow {
   font-size: 12px;
   font-weight: 600;
@@ -134,7 +126,6 @@ ul {
   margin-top: 52px;
 }
 
-/* ============ BUTTONS ============ */
 .btn-primary-gold {
   display: inline-flex;
   align-items: center;
@@ -248,7 +239,6 @@ ul {
   background: var(--gold-300);
 }
 
-/* ============ NAVBAR ============ */
 .navbar {
   position: fixed;
   top: 0;
@@ -347,7 +337,6 @@ ul {
   transition: var(--transition);
 }
 
-/* ============ HERO ============ */
 .hero {
   position: relative;
   display: flex;
@@ -528,7 +517,6 @@ transform:translateY(0) translateX(-22px) scale(1.02);
 
 }
 
-/* Feature strip */
 .hero-features-strip {
   padding: 14px 0;
   background: rgba(5, 13, 24, 0.7);
@@ -569,7 +557,6 @@ transform:translateY(0) translateX(-22px) scale(1.02);
   flex-shrink: 0;
 }
 
-/* ============ MARQUEE (Enhancement 3) ============ */
 .marquee-section {
   background: linear-gradient(90deg, var(--navy-950), rgba(212, 175, 55, 0.08), var(--navy-950));
   border-top: 1px solid rgba(212, 175, 55, 0.15);
@@ -618,7 +605,6 @@ transform:translateY(0) translateX(-22px) scale(1.02);
   animation-play-state: paused;
 }
 
-/* ============ ABOUT PREVIEW ============ */
 .about-preview {
   background: var(--navy-800);
 }
@@ -672,7 +658,6 @@ transform:translateY(0) translateX(-22px) scale(1.02);
   margin-top: 4px;
 }
 
-/* Counter Stats (Enhancement 2) */
 .about-stats {
   display: flex;
   gap: 32px;
@@ -712,7 +697,6 @@ transform:translateY(0) translateX(-22px) scale(1.02);
   margin-top: 6px;
 }
 
-/* ============ PRODUCTS — GLASS CARDS (Enhancement 4) ============ */
 .products-section {
   background: var(--navy-900);
 }
@@ -838,7 +822,6 @@ transform:translateY(0) translateX(-22px) scale(1.02);
   font-size: 10px;
 }
 
-/* ============ WHY SNOWFOLD ============ */
 .why-section {
   background: var(--navy-800);
 }
@@ -889,7 +872,6 @@ transform:translateY(0) translateX(-22px) scale(1.02);
   line-height: 1.75;
 }
 
-/* ============ NAPKIN BANNER ============ */
 .napkin-banner {
   position: relative;
   height: 520px;
@@ -941,7 +923,6 @@ transform:translateY(0) translateX(-22px) scale(1.02);
   margin-bottom: 32px;
 }
 
-/* ============ TESTIMONIALS ============ */
 .testimonials-section {
   background: var(--navy-900);
 }
@@ -1048,7 +1029,6 @@ transform:translateY(0) translateX(-22px) scale(1.02);
   font-size: 15px;
 }
 
-/* ============ MANUFACTURING ============ */
 .manufacturing-section {
   background: var(--navy-800);
 }
@@ -1145,7 +1125,6 @@ transform:translateY(0) translateX(-22px) scale(1.02);
   object-position: center center;
 }
 
-/* ============ CTA ============ */
 .cta-section {
   position: relative;
   padding: 100px 24px;
@@ -1190,7 +1169,6 @@ transform:translateY(0) translateX(-22px) scale(1.02);
   flex-wrap: wrap;
 }
 
-/* ============ FOOTER ============ */
 .footer {
   background: var(--navy-950);
   border-top: 1px solid rgba(212, 175, 55, 0.1);
@@ -1213,7 +1191,7 @@ transform:translateY(0) translateX(-22px) scale(1.02);
 
 .footer-tagline {
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.5);
   letter-spacing: 0.08em;
   margin-bottom: 16px;
 }
@@ -1308,10 +1286,9 @@ transform:translateY(0) translateX(-22px) scale(1.02);
   align-items: center;
   justify-content: space-between;
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.5);
 }
 
-/* ============ WHATSAPP FLOAT ============ */
 .whatsapp-float {
   position: fixed;
   bottom: 28px;
@@ -1347,7 +1324,6 @@ transform:translateY(0) translateX(-22px) scale(1.02);
   }
 }
 
-/* ============ MOBILE ============ */
 @media (max-width: 1024px) {
   .products-grid {
     grid-template-columns: repeat(2, 1fr);

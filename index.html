@@ -4,33 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SNOWFOLD — Softness, Folded In.</title>
+  <meta name="description" content="SNOWFOLD by Hrithvin Industries — premium tissue paper products including facial tissues, kitchen towels, toilet rolls and napkins, crafted from 100% virgin pulp. Pan-India supply for homes, hotels, restaurants and businesses.">
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 
-  <!-- Preload LCP image (hero) - must be first -->
   <link rel="preload" href="assets/images/hero-products-v3.webp" as="image" type="image/webp" fetchpriority="high">
 
-  <!-- Preconnect to external domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 
-  <!-- Google Fonts with display=swap -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Async: Font Awesome -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
 
-  <!-- Async: AOS CSS -->
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"></noscript>
 
-  <!-- Main CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- ===== NAVBAR ===== -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <a href="index.html" class="nav-brand">
@@ -52,7 +51,8 @@
     </div>
   </nav>
 
-  <!-- ===== HERO ===== -->
+  <main id="main-content">
+
   <section class="hero" id="hero">
     <div class="hero-bg">
       <div class="hero-glow"></div>
@@ -85,22 +85,31 @@
 
       <div class="hero-image">
         <div class="hero-img-container">
-          <img
-            src="assets/images/hero-products-v3.webp"
-            alt="SNOWFOLD Premium Products"
-            class="hero-img-main"
-            width="800"
-            height="600"
-            loading="eager"
-            decoding="async"
-            fetchpriority="high"
-            draggable="false"
-          />
+          <picture>
+  <!-- Mobile Image -->
+  <source
+    media="(max-width: 768px)"
+    srcset="assets/images/hero-products-mobile.webp"
+    type="image/webp"
+  />
+
+  <!-- Desktop Image -->
+  <img
+    src="assets/images/hero-products-v3.webp"
+    alt="SNOWFOLD Premium Products"
+    class="hero-img-main"
+    width="800"
+    height="600"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+    draggable="false"
+  />
+</picture>
         </div>
       </div>
     </div>
 
-    <!-- Feature Strip -->
     <div class="hero-features-strip" data-aos="fade-up" data-aos-delay="400">
       <div class="features-row">
         <div class="feature-item">
@@ -136,7 +145,6 @@
     </div>
   </section>
 
-  <!-- ===== MARQUEE TICKER ===== -->
   <div class="marquee-section">
     <div class="marquee-track">
       <div class="marquee-content">
@@ -160,7 +168,6 @@
     </div>
   </div>
 
-  <!-- ===== ABOUT PREVIEW ===== -->
   <section class="section about-preview" id="about">
     <div class="container">
       <div class="about-preview-grid">
@@ -214,7 +221,6 @@
     </div>
   </section>
 
-  <!-- ===== PRODUCT CATEGORIES ===== -->
   <section class="section products-section" id="products">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
@@ -345,7 +351,6 @@
     </div>
   </section>
 
-  <!-- ===== WHY SNOWFOLD ===== -->
   <section class="section why-section">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
@@ -377,7 +382,6 @@
     </div>
   </section>
 
-  <!-- ===== NAPKIN FEATURE BANNER ===== -->
   <section class="napkin-banner">
     <div class="napkin-banner-bg">
       <picture>
@@ -394,7 +398,6 @@
     </div>
   </section>
 
-  <!-- ===== TESTIMONIALS ===== -->
   <section class="section testimonials-section">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
@@ -409,7 +412,6 @@
     </div>
   </section>
 
-  <!-- ===== MANUFACTURING ===== -->
   <section class="section manufacturing-section">
     <div class="container">
       <div class="manufacturing-grid">
@@ -469,7 +471,6 @@
     </div>
   </section>
 
-  <!-- ===== CTA ===== -->
   <section class="cta-section">
     <div class="cta-bg"></div>
     <div class="container">
@@ -487,7 +488,8 @@
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
+  </main>
+
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -535,11 +537,10 @@
     </div>
   </footer>
 
-  <!-- WhatsApp Float -->
   <a href="https://wa.me/919500307500" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
-
+<!-- TEST GIT -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="js/main.js"></script>
 </body>

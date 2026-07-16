@@ -1,8 +1,3 @@
-/* ============================================
-   SNOWFOLD — Main JS v2
-   Navbar, mobile menu, AOS, counters, testimonials
-   ============================================ */
-
 const API_BASE = 'https://snowfold-backend.onrender.com/api';
 
 // ===== AOS =====
