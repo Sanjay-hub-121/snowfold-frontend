@@ -499,7 +499,6 @@ ul {
   position:relative;
   left:0px;
   transform:translateX(-22px) scale(1.02);
-  mix-blend-mode: darken;
 }
 
 @keyframes heroFloat{
