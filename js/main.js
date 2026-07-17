@@ -12,15 +12,38 @@ window.addEventListener('scroll', () => {
 // ===== Mobile menu =====
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
+
 if (hamburger && navLinks) {
-  hamburger.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-  navLinks.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    document.body.style.overflow = '';
-  }));
+
+    hamburger.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        document.body.style.overflow = open ? 'hidden' : '';
+    });
+
+    navLinks.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (
+            navLinks.classList.contains('open') &&
+            !navLinks.contains(e.target) &&
+            !hamburger.contains(e.target)
+        ) {
+            navLinks.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            navLinks.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    });
 }
 
 // ===== Smooth anchor scroll =====

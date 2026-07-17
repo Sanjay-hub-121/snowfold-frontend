@@ -93,7 +93,7 @@
       </ul>
       <div class="nav-actions">
         <a href="contact.html" class="btn-inquiry">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
-        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
@@ -129,12 +129,6 @@
     AOS.init({ once: true });
     const API = 'https://snowfold-backend.onrender.com/api';
 
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
-    });
 
     function switchImage(url, thumbEl) {
       document.getElementById('mainImg').src = url;
@@ -231,5 +225,6 @@
 
     loadProduct();
   </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
