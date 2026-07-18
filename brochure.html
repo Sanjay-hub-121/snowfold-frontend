@@ -193,24 +193,21 @@
           return;
         }
         grid.innerHTML = brochures.map(b => `
-  <div class="brochure-card" data-aos="fade-up">
-    <div class="brochure-icon"><i class="fa-solid fa-file-pdf"></i></div>
-    <div class="brochure-info">
-      <div class="brochure-title">${b.title}</div>
-      <div class="brochure-type">${b.type === 'company' ? 'Company Brochure' : 'Product Brochure'}</div>
-    </div>
-    <div class="brochure-actions">
-      <a href="${b.fileUrl}" target="_blank" class="btn-primary-gold btn-sm" style="padding:8px 16px; font-size:13px;">
-        <i class="fa-solid fa-download"></i> Download
-      </a>
-      <button
-        class="btn-outline-gold btn-sm preview-btn"
-        style="padding:8px 16px;font-size:13px;"
-        data-pdf="${b.fileUrl}">
-        <i class="fa-solid fa-eye"></i> Preview
-      </button>
-    </div>
-  </div>`).join('');
+          <div class="brochure-card" data-aos="fade-up">
+            <div class="brochure-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="brochure-info">
+              <div class="brochure-title">${b.title}</div>
+              <div class="brochure-type">${b.type === 'company' ? 'Company Brochure' : 'Product Brochure'}</div>
+            </div>
+            <div class="brochure-actions">
+              <a href="${b.fileUrl}" target="_blank" class="btn-primary-gold btn-sm" style="padding:8px 16px; font-size:13px;">
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+              <a href="${b.fileUrl}" target="_blank" class="btn-outline-gold btn-sm" style="padding:8px 16px; font-size:13px;">
+                <i class="fa-solid fa-eye"></i> Preview
+              </a>
+            </div>
+          </div>`).join('');
         AOS.refresh();
       } catch (err) {
         grid.innerHTML = `<div class="empty-brochure"><i class="fa-solid fa-file-pdf"></i><p>Brochures coming soon. <a href="contact.html" style="color:var(--gold-400);">Contact us</a> for a copy.</p></div>`;
@@ -219,50 +216,5 @@
     loadBrochures();
   </script>
   <script src="js/main.js"></script>
-  <!-- Brochure Preview Modal -->
-
-<div id="brochureModal" class="brochure-modal">
-
-  <div class="brochure-modal-content">
-
-    <div class="brochure-modal-header">
-
-      <h2>SNOWFOLD Product Catalogue</h2>
-
-      <button id="closeModal">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-    </div>
-
-    <iframe
-      id="brochureFrame"
-      src=""
-      loading="lazy">
-    </iframe>
-
-    <div class="brochure-modal-footer">
-
-      <button id="closeBtn" class="btn-outline-gold">
-        Close
-      </button>
-
-      <a
-        id="downloadPdf"
-        href="#"
-        target="_blank"
-        class="btn-primary-gold">
-
-        <i class="fa-solid fa-download"></i>
-
-        Download PDF
-
-      </a>
-
-    </div>
-
-  </div>
-
-</div>
 </body>
 </html>
